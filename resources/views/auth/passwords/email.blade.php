@@ -5,7 +5,7 @@
     <form method="POST" action="{{ route('password.email') }}">
         @csrf
         <div class="signin" [hidden]="login">
-            <h1 class="topline">Şifreyi yenile</h1>
+            <h1 class="topline">{{ __('forgot_password.header') }}</h1>
             <br />
             @if (session('status'))
                 <div class="alert alert-success" role="alert">
@@ -13,7 +13,7 @@
                 </div>
             @endif
             <div class="input-field">
-                <input id="email" type="email" placeholder="E-mail" class="form-control @error('email') is-invalid @enderror" name="email" value="{{ old('email') }}" required autocomplete="email" autofocus>
+                <input id="email" type="email" placeholder="{{ __('forgot_password.email') }}" class="form-control @error('email') is-invalid @enderror" name="email" value="{{ old('email') }}" required autocomplete="email" autofocus>
 
                 @error('email')
                 <span class="invalid-feedback" role="alert">
@@ -24,7 +24,7 @@
 
             <div class="login-box-button">
                 <button type="submit">
-                    Şifre Sıfırlama Bağlantısını Gönder
+                    {{ __('forgot_password.submit') }}
                 </button>
             </div>
         </div>
